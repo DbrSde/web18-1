@@ -1,6 +1,8 @@
 <?php
 
+//La fonction isset permet de vérifier sur quelque chose existe.
 if (isset($_POST['validation'])) {
+    //Récupération des éléments du formulaire
     $nom = isset($_POST['nom']) ? $_POST['nom'] : "";
     $prenom = isset($_POST['prenom']) ? $_POST['prenom'] : "";
     $mail = isset($_POST['mail']) ? $_POST['mail'] : "";
@@ -8,6 +10,7 @@ if (isset($_POST['validation'])) {
 
     $erreur = array();
 
+    //Vérification des champs (remplis ou non)
     if ($nom == "") array_push($erreur,"Veuillez saisir votre nom");
     if ($prenom == "") array_push($erreur,"Veuillez saisir votre prenom");
     if ($mail == "") array_push($erreur,"Veuillez saisir un mail valide");

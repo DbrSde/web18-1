@@ -27,6 +27,9 @@ if (isset($_POST['validation'])) {
         $resultat .= '</ul>';
         echo $resultat;
         require_once 'formInscription.php';
+    } else {
+        $checkMail = "SELECT COUNT(*) FROM t_users WHERE USEMAIL='" . $mail . "'";
+        die($checkMail);
     }
 
 

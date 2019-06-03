@@ -1,5 +1,5 @@
 <?php
-
+$valeurLangue = getLang();
 ?>
 <!DOCTYPE html>
 <html lang=<?=$locale?>  dir="ltr">

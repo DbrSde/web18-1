@@ -44,7 +44,26 @@ if (isset($_POST['validation'])) {
                 (USENOM, USEPRENOM, USEMAIL, USEPWD, USETOKEN, ID_ROLES)
                 VALUES ('" .$nom . "', '" . $prenom ."', '" . $email . "', '" . $mdp ."', '" . $token . "',3)";
             die($sql);
+
+            /*Envoi de mail
+            Installer MailDev via le terminal de commande (Node JS impératif)
+            npm install -g maildev@1.0.0-rc2
+            Modifier le port dans php.ini (smpt_port:1025)
+            Lancer maildev dans le terminal de commande
+            Dans le navigateur,  127.0.0.1:1080
+            */
+
+            $msg = "Inscription Ok";
+            $sujet = "Validation de votre inscription";
+            $headers = "From: toto@titi.fr"  . "\r\n" . 'Reply-To: tata@titi.fr';
+
+            if (mail($email, $sujet, $msg, $headers)) {
+                echo "Inscription Ok";
+            } else {
+                echo "L'inscription a échouée";
+            }
         } else {
+            echo "Tu es déjà inscrit";
         }
     }
 }

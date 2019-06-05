@@ -43,30 +43,29 @@ if (isset($_POST['validation'])) {
             $sql = "INSERT INTO t_users
                 (USENOM, USEPRENOM, USEMAIL, USEPWD, USETOKEN, ID_ROLES)
                 VALUES ('" .$nom . "', '" . $prenom ."', '" . $email . "', '" . $mdp ."', '" . $token . "',3)";
-            die($sql);
-
-            /*Envoi de mail
-            Installer MailDev via le terminal de commande (Node JS impératif)
-            npm install -g maildev@1.0.0-rc2
-            Modifier le port dans php.ini (smpt_port:1025)
-            Lancer maildev dans le terminal de commande
-            Dans le navigateur,  127.0.0.1:1080
-            */
-
-            $msg = "Inscription Ok";
-            $sujet = "Validation de votre inscription";
-            $headers = "From: toto@titi.fr"  . "\r\n" . 'Reply-To: tata@titi.fr';
-
+            $query = $pdo->prepare($sql);
+            $query->execute();
+            /* Envoi de mail
+             *
+             * Installer MailDev (NodeJS impératif)
+             * npm install -g maildev@1.0.0-rc2
+             * Modifier le port dans php.ini (smtp_port 25 à 1025)
+             * Lancer maildev avec la commande : maildev
+             * Dans un navigateur, http://127.0.0.1:1080
+             *
+             */
+            $msg = "<h1>Inscription OK</h1>";
+            $msg .= "<p>Vous valider votre inscription, veuillez <a href=\"http://localhost/web18-1/index.php?page=registrationValidation&amp;mail=$email&amp;token=$token\">ici</a>.</p>";            $sujet = "Validation de votre inscription";
+            $headers = 'From: manu@elysee.fr' . "\r\n" .
+                'Reply-To: brigitte@elysee.fr';
             if (mail($email, $sujet, $msg, $headers)) {
-                echo "Inscription Ok";
-            } else {
+                echo "Inscription OK";
+            }
+            else {
                 echo "L'inscription a échouée";
             }
-        } else {
-            echo "Tu es déjà inscrit";
         }
     }
-}
-else {
+} else {
     require_once 'formInscription.php';
 }

@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['login'])) {
+if (isset($_POST['connexion'])) {
     $email = isset($_POST['email']) ? $_POST['email'] : "";
     $mdp = isset($_POST['mdp']) ? $_POST['mdp'] : "";
     $erreur = array();
@@ -12,7 +12,7 @@ if (isset($_POST['login'])) {
         }
         $msgErreur .= "</ul>";
         echo $msgErreur;
-        require_once 'frmLogin.php';
+        require_once 'formConnexion.php';
     } else {
         $sql = "SELECT * FROM t_users WHERE usemail='$email'";
         $result = $pdo->query($sql)->fetchAll();
@@ -24,7 +24,7 @@ if (isset($_POST['login'])) {
             $result = $pdo->query($sql)->fetchObject();
             $hashDatabase = $result->usepwd;
             if (password_verify($mdp, $hashDatabase)) {
-                $_SESSION['login'] = 1;
+                $_SESSION['connexion'] = 1;
                 $_SESSION['prenom'] = $result->$useprenom;
                 $_SESSION['nom'] = $result->$usenom;
                 var_dump($_SESSION);

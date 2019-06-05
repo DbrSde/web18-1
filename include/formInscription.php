@@ -6,7 +6,7 @@ $prenom = isset($prenom) ? $prenom : "";
 $mail = isset($mail) ? $mail : "";
 ?>
 
-<form method="post" action="../index.php?page=inscription" style="width: 30%; margin: auto;">
+<form method="post" action="index.php?page=inscription" style="width: 30%; margin: auto;">
     <div style="display: flex; justify-content: space-between;">
         <label style="color: green; font-weight: 700; text-transform: uppercase;" for="nom">Nom&nbsp;: </label>
         <input style="width: 70%;" name="nom" type="text" value="<?=$nom?>"/>

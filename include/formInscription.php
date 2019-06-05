@@ -6,26 +6,26 @@ $prenom = isset($prenom) ? $prenom : "";
 $mail = isset($mail) ? $mail : "";
 ?>
 
-<form method="post" action="index.php?page=inscription">
-    <div>
-        <label for="nom">Nom&nbsp;: </label>
-        <input name="nom" type="text" value="<?=$nom?>"/>
+<form method="post" action="../index.php?page=inscription" style="width: 30%; margin: auto;">
+    <div style="display: flex; justify-content: space-between;">
+        <label style="color: green; font-weight: 700; text-transform: uppercase;" for="nom">Nom&nbsp;: </label>
+        <input style="width: 70%;" name="nom" type="text" value="<?=$nom?>"/>
     </div>
-    <div>
-        <label for="prenom">Prénom&nbsp;: </label>
-        <input name="prenom" type="text" value="<?=$prenom?>" />
+    <div style="display: flex; justify-content: space-between;">
+        <label style="color: green; font-weight: 700; text-transform: uppercase;"  for="prenom">Prénom&nbsp;: </label>
+        <input style="width: 70%;" name="prenom" type="text" value="<?=$prenom?>" />
     </div>
-    <div>
-        <label for="email">e-mail&nbsp;: </label>
-        <input name="email" type="mail" value="<?=$mail?>"/>
+    <div style="display: flex; justify-content: space-between;">
+        <label style="color: green; font-weight: 700; text-transform: uppercase;"  for="email">e-mail&nbsp;: </label>
+        <input style="width: 70%;" name="email" type="mail" value="<?=$mail?>"/>
     </div>
-    <div>
-        <label for="mdp">Mot de passe&nbsp;: </label>
-        <input name="mdp" type="password"/>
+    <div style="display: flex; justify-content: space-between;">
+        <label style="color: green; font-weight: 700; text-transform: uppercase;"  for="mdp">Mot de passe&nbsp;: </label>
+        <input style="width: 70%;" name="mdp" type="password"/>
     </div>
-    <div>
-        <input type="reset" value="Effacer" />
-        <input type="submit" value="Valider" />
+    <div style="display: flex; justify-content: center;">
+        <input style="margin: 2%; background-color: white; color: black; border: 1px solid #4CAF50; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" type="reset" value="Effacer" />
+        <input style="margin: 2%; background-color: white; color: black; border: 1px solid #4CAF50; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" type="submit" value="Valider" />
     </div>
     <input type="hidden" name="validation" />
 </form>
